@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目 - Portfolio</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Portfolio</div>
+        <ul class="nav-links">
+            <li><a href="/">首页</a></li>
+            <li><a href="/projects" class="active">项目</a></li>
+            <li><a href="/skills">技能</a></li>
+            <li><a href="/contact">联系</a></li>
+        </ul>
+    </nav>
+    
+    <main class="container">
+        <h1 class="page-title">我的项目</h1>
+        <div class="projects-grid">
+            <div class="project-card" th:each="project : ${projects}">
+                <h3 th:text="${project.name}">项目名称</h3>
+                <p th:text="${project.description}">项目描述</p>
+                <div class="tech-stack">
+                    <span class="tech-tag" th:text="${project.tech}">技术栈</span>
+                </div>
+                <a th:href="${project.link}" class="btn btn-small" target="_blank">查看详情</a>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2026 Shadin Yao. All rights reserved.</p>
+    </footer>
+</body>
+</html>
